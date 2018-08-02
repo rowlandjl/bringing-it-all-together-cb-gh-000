@@ -9,6 +9,13 @@ class Dog
   end
 
   def self.create_table
+    sql =<<-SQL 
+    CREATE TABLE IF NOT EXISTS dogs (
+      id integer primary key,
+      name text,
+      breed text
+    );
+    SQL 
   end
 
   def self.drop_table
