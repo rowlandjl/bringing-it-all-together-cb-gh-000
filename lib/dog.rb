@@ -34,7 +34,7 @@ class Dog
     sql =<<-SQL
     SELECT * FROM dogs where name = ?;
     SQL
-    DB[:conn].execute(sql, name).map { |dog| new_from_db(dog)}.first 
+    DB[:conn].execute(sql, name).map { |dog| new_from_db(dog)}.first
   end
 
   def update
