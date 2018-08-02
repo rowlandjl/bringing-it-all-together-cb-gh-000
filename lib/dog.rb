@@ -45,13 +45,17 @@ class Dog
   end
 
   def save
-    if self.id 
-      self.update 
-    else 
-      sql = <<-SQL 
+    if self.id
+      self.update
+    else
+      sql = <<-SQL
       INSERT INTO dogs(name, breed) VALUES(?,?);
-      SQL 
+      SQL
       DB[:conn].execute(sql, self.name, self.breed)
+
+      @id = DB[:conn].execute("SELECT last_insert_rowid() from dogs limit 1;")[0][0]
+      self 
+    end 
   end
 
   def self.create(name:, breed:)
