@@ -9,13 +9,14 @@ class Dog
   end
 
   def self.create_table
-    sql =<<-SQL 
+    sql =<<-SQL
     CREATE TABLE IF NOT EXISTS dogs (
       id integer primary key,
       name text,
       breed text
     );
-    SQL 
+    SQL
+    DB[:conn].execute(sql)
   end
 
   def self.drop_table
@@ -40,7 +41,7 @@ class Dog
 
   def self.create(name:, breed:)
     new_dog = new(name: name, breed: breed)
-    new_dog.save 
+    new_dog.save
   end
 
   def self.find_by_id(id)
