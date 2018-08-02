@@ -31,9 +31,10 @@ class Dog
   end
 
   def self.find_by_name(name)
-    sql =<<-SQL 
+    sql =<<-SQL
     SELECT * FROM dogs where name = ?;
-    SQL 
+    SQL
+    DB[:conn].execute(sql, name).map { |dog| new_from_db(dog)}.first 
   end
 
   def update
