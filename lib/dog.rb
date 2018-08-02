@@ -12,6 +12,9 @@ class Dog
   end
 
   def self.drop_table
+    sql = <<-SQL 
+    DROP TABLE dogs;
+    SQL 
   end
 
   def self.new_from_db(row)
@@ -33,6 +36,6 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
-  end 
+  end
 
 end
