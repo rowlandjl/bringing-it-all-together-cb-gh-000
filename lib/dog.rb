@@ -54,8 +54,8 @@ class Dog
       DB[:conn].execute(sql, self.name, self.breed)
 
       @id = DB[:conn].execute("SELECT last_insert_rowid() from dogs limit 1;")[0][0]
-      self 
-    end 
+      self
+    end
   end
 
   def self.create(name:, breed:)
