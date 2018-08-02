@@ -12,10 +12,10 @@ class Dog
   end
 
   def self.drop_table
-    sql = <<-SQL 
+    sql = <<-SQL
     DROP TABLE dogs;
     SQL
-    DB[:conn].execute(sql) 
+    DB[:conn].execute(sql)
   end
 
   def self.new_from_db(row)
