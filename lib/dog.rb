@@ -8,4 +8,13 @@ class Dog
     @breed = breed
   end
 
+  def self.create_table
+  end 
+
+  def self.drop_table
+  end 
+
+  def self.new_from_db(row)
+  end 
+
 end
